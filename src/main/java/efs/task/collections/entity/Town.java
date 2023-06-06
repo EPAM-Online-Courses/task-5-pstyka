@@ -45,9 +45,4 @@ public class Town {
     public String toString() {
         return "Miasto :" + townName;
     }
-
-    @Override
-    public String toString() {
-        return "Miasto :" + townName;
-    }
 }
