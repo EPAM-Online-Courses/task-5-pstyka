@@ -22,15 +22,25 @@ public class Town {
     //TODO implementacja metody equal porównująca obiekty Town na podstawie tylko townName.
     @Override
     public boolean equals(Object o) {
-        return true;
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Town)) {
+            return false;
+        }
+        Town town = (Town) o;
+        boolean townNameEquals = (this.getTownName() == null && town.getTownName() == null) || (this.getTownName() != null && this.getTownName().equals(town.getTownName()));
+        return townNameEquals;
     }
 
     //TODO implementacja metody equal biorąca pod uwagę tylko townName.
     @Override
     public int hashCode() {
-        return 1;
-    }
 
+        int result = 17;
+        result = 31 * result + (townName == null ? 0 : townName.hashCode());
+        return result;
+    }
     @Override
     public String toString() {
         return "Miasto :" + townName;
